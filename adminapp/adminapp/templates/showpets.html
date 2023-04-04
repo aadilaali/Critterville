@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>        
+        <th>Breed</th>        
+        <th>Phone_Number</th>        
+        <th>Email</th>               
+    </tr>
+    {% for pet in pet %}
+    <tr>
+        <td>{{pet.id}}</td>
+        <td>{{pet.Name}}</td>
+        <td>{{pet.Breed}}</td>
+        <td>{{pet.Gender}}</td>
+        <td>{{pet.Age}}</td>
+        <td><img src="{{pet.Photo1.url}}" width="200px"></td>
+        <td><img src="{{pet.Photo2.url}}" width="200px"></td>
+
+        <td>
+            <a href="{% url 'adminapp:admin_deletepet' pet.id %}">Delete</a>
+            <a href="{% url 'adminapp:adminupdatepet' pet.id %}">Update</a>
+        </td>
+
+        
+    </tr>
+    {% endfor %}
+   </table>
+
+   <br>
+<br>
+   <a href="{% url 'adminapp:dashboard'  %}">Previous</a>
+</body>
+</html>
